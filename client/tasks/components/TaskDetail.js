@@ -9,7 +9,7 @@ function TaskDetail({ id, comments, task, isCompleted, groups }) {
 				<input value={task.name}></input>
 			</div>
 			<div>
-				<button>Complete</button>
+				<button>{isCompleted ? 'ReOpen' : 'Complete'}</button>
 			</div>
 			<div>
 				<select>
@@ -41,4 +41,8 @@ function __mapStateToProps(state, ownProps) {
 	};
 }
 
-export default connect(__mapStateToProps)(TaskDetail);
+function __mapDispatchToProps(dispatch, ownProps) {
+	return {};
+}
+
+export default connect(__mapStateToProps, __mapDispatchToProps)(TaskDetail);

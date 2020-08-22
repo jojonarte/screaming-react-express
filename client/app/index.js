@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import { store } from '../store';
 import history from '../store/history';
 import Navigation from '../navigation';
-import TaskDetail from '../task.detail';
+import { TaskDetail } from '../tasks';
 
 export default class App extends Component {
 	render() {

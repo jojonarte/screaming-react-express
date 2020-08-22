@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import TaskList from '../tasks';
+import { TaskList } from '../tasks';
 
 export const Dashboard = ({ groups }) => {
 	return (
