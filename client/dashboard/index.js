@@ -5,7 +5,6 @@ import TaskList from '../tasks';
 export const Dashboard = ({ groups }) => {
 	return (
 		<div>
-			<h1>Dashboard</h1>
 			<div>
 				{groups.map((group) => (
 					<TaskList key={group.id} id={group.id} name={group.name} />

@@ -1,12 +1,13 @@
-export const REQUEST_TASK_CREATION = 'REQUEST_TASK_CREATION';
-export const CREATE_TASK = 'CREATE_TASK';
+import { REQUEST_TASK_CREATION, CREATE_TASK } from './actionTypes';
 
 export const createTaskCreation = (groupId) => ({
 	type: REQUEST_TASK_CREATION,
-	payload: groupId,
+	groupId,
 });
 
 export const createTask = (taskId, groupId, ownerId) => ({
 	type: CREATE_TASK,
-	payload: { taskId, groupId, ownerId },
+	taskId,
+	groupId,
+	ownerId,
 });

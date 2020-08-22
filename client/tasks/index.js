@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { createTaskCreation } from '../store/mutations';
+import { createTaskCreation } from './actions';
 
 function TaskList({ tasks, name, id, createNewTask }) {
 	return (
@@ -24,7 +24,7 @@ function __mapStateToProps(state, ownProps) {
 
 function __mapDispatchToProps(dispatch, ownProps) {
 	return {
-		createNewTask: createTaskCreation,
+		createNewTask: (id) => dispatch(createTaskCreation(id)),
 	};
 }
 
