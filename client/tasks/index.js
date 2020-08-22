@@ -1,14 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { createTaskCreation } from '../store/mutations';
 
-function TaskList({ tasks, name }) {
-	console.log('zzzxx', tasks);
+function TaskList({ tasks, name, id, createNewTask }) {
 	return (
 		<div>
 			<h3>{name}</h3>
 			{tasks.map((task) => (
 				<li key={task.id}>{task.name}</li>
 			))}
+			<button onClick={() => createNewTask(id)}>New task</button>
 		</div>
 	);
 }
@@ -21,4 +22,10 @@ function __mapStateToProps(state, ownProps) {
 	};
 }
 
-export default connect(__mapStateToProps)(TaskList);
+function __mapDispatchToProps(dispatch, ownProps) {
+	return {
+		createNewTask: createTaskCreation,
+	};
+}
+
+export default connect(__mapStateToProps, __mapDispatchToProps)(TaskList);
