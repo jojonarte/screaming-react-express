@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+
 import { createTaskCreation } from './actions';
 
 function TaskList({ tasks, name, id, createNewTask }) {
@@ -7,7 +9,9 @@ function TaskList({ tasks, name, id, createNewTask }) {
 		<div>
 			<h3>{name}</h3>
 			{tasks.map((task) => (
-				<li key={task.id}>{task.name}</li>
+				<Link to={`/task/${task.id}`}>
+					<li key={task.id}>{task.name}</li>
+				</Link>
 			))}
 			<button onClick={() => createNewTask(id)}>New task</button>
 		</div>

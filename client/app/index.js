@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import { store } from '../store';
 import history from '../store/history';
 import Navigation from '../navigation';
+import TaskDetail from '../task.detail';
 
 export default class App extends Component {
 	render() {
@@ -17,6 +18,11 @@ export default class App extends Component {
 						exact
 						path="/dashboard"
 						render={(props) => <Dashboard {...props} />}
+					/>
+					<Route
+						exact
+						path="/task/:id"
+						render={({ match }) => <TaskDetail match={match} />}
 					/>
 				</Provider>
 			</BrowserRouter>
