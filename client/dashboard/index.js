@@ -8,7 +8,7 @@ export const Dashboard = ({ groups }) => {
 			<h1>Dashboard</h1>
 			<div>
 				{groups.map((group) => (
-					<TaskList id={group.id} name={group.name} />
+					<TaskList key={group.id} id={group.id} name={group.name} />
 				))}
 			</div>
 		</div>

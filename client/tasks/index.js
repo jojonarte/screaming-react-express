@@ -7,7 +7,7 @@ function TaskList({ tasks, name }) {
 		<div>
 			<h3>{name}</h3>
 			{tasks.map((task) => (
-				<li>{task.name}</li>
+				<li key={task.id}>{task.name}</li>
 			))}
 		</div>
 	);
