@@ -21,8 +21,8 @@ module.exports = {
 	devtool: 'inline-source-map',
 	plugins: [
 		new MiniCssExtractPlugin({
-			filename: isDev ? '[name].css' : '[name].[has].css',
-			chunkFilename: isDev ? '[name].css' : '[name].[has].css',
+			filename: isDev ? '[name].css' : '[name].[hash].css',
+			chunkFilename: isDev ? '[name].css' : '[name].[hash].css',
 		}),
 		new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
 		new webpack.HotModuleReplacementPlugin(),
