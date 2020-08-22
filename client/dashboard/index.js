@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import TaskList from '../tasks';
 
 export const Dashboard = ({ groups }) => {
 	return (
@@ -7,7 +8,7 @@ export const Dashboard = ({ groups }) => {
 			<h1>Dashboard</h1>
 			<div>
 				{groups.map((group) => (
-					<li>group</li>
+					<TaskList id={group.id} name={group.name} />
 				))}
 			</div>
 		</div>
