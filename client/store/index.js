@@ -1,13 +1,14 @@
 import 'regenerator-runtime/runtime';
 
 import { createStore, applyMiddleware, combineReducers } from 'redux';
-import { defaultState } from '../../server/defaultState';
 import { createLogger } from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
 
 import tasksReducer from '../tasks/reducer';
 
 import * as tasksSagas from '../tasks/sagas';
+import { defaultState } from '../../backendserver/defaultState';
+
 const sagaMiddleware = createSagaMiddleware();
 
 const usersReducer = (state = defaultState.users, action) => {
