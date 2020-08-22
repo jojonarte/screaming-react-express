@@ -11,6 +11,11 @@ export const defaultState = {
 			id: 'g1',
 			owner: 'u1',
 		},
+		{
+			name: 'In progress',
+			id: 'g2',
+			owner: 'u1',
+		},
 	],
 	tasks: [
 		{
