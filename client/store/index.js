@@ -12,24 +12,24 @@ import { defaultState } from '../../backendserver/defaultState';
 const sagaMiddleware = createSagaMiddleware();
 
 const usersReducer = (state = defaultState.users, action) => {
-	return state;
+  return state;
 };
 const groupsReducer = (state = defaultState.groups, action) => {
-	return state;
+  return state;
 };
 const commentsReducer = (state = defaultState.comments, action) => {
-	return state;
+  return state;
 };
 
 export const store = createStore(
-	combineReducers({
-		auth: authReducer,
-		tasks: tasksReducer,
-		users: usersReducer,
-		groups: groupsReducer,
-		comments: commentsReducer,
-	}),
-	applyMiddleware(createLogger(), sagaMiddleware)
+  combineReducers({
+    auth: authReducer,
+    tasks: tasksReducer,
+    users: usersReducer,
+    groups: groupsReducer,
+    comments: commentsReducer,
+  }),
+  applyMiddleware(createLogger(), sagaMiddleware)
 );
 
 sagaMiddleware.run(rootSaga);

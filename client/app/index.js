@@ -10,24 +10,24 @@ import { TaskDetail } from '../tasks';
 import { Login } from '../auth';
 
 export default class App extends Component {
-	render() {
-		return (
-			<BrowserRouter history={history}>
-				<Provider store={store}>
-					<Navigation />
-					<Route
-						exact
-						path="/dashboard"
-						render={(props) => <Dashboard {...props} />}
-					/>
-					<Route
-						exact
-						path="/task/:id"
-						render={({ match }) => <TaskDetail match={match} />}
-					/>
-					<Route exact path="/login" component={Login} />
-				</Provider>
-			</BrowserRouter>
-		);
-	}
+  render() {
+    return (
+      <BrowserRouter history={history}>
+        <Provider store={store}>
+          <Navigation />
+          <Route
+            exact
+            path="/dashboard"
+            render={(props) => <Dashboard {...props} />}
+          />
+          <Route
+            exact
+            path="/task/:id"
+            render={({ match }) => <TaskDetail match={match} />}
+          />
+          <Route exact path="/login" component={Login} />
+        </Provider>
+      </BrowserRouter>
+    );
+  }
 }

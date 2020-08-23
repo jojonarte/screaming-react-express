@@ -8,16 +8,16 @@ const { asyncResolver } = require('../util/middleware');
  * @access Public
  */
 exports.register = asyncResolver(async (req, res, next) => {
-	console.log('REQZZZ', req);
-	const { username, name, password } = req.body;
+  console.log('REQZZZ', req);
+  const { username, name, password } = req.body;
 
-	const user = await UserModel.create({
-		username,
-		name,
-		password,
-	});
+  const user = await UserModel.create({
+    username,
+    name,
+    password,
+  });
 
-	res.status(200).json({ success: true });
+  res.status(200).json({ success: true });
 });
 
 /**
@@ -26,27 +26,27 @@ exports.register = asyncResolver(async (req, res, next) => {
  * @access Public
  */
 exports.login = asyncResolver(async (req, res, next) => {
-	const { username, password } = req.body;
+  const { username, password } = req.body;
 
-	if (!username || !password) {
-		return next(
-			new ErrorResponse('Please provide correct email and password', 400)
-		);
-	}
+  if (!username || !password) {
+    return next(
+      new ErrorResponse('Please provide correct email and password', 400)
+    );
+  }
 
-	const user = await UserModel.findOne({ username }).select('+password');
+  const user = await UserModel.findOne({ username }).select('+password');
 
-	if (!user) {
-		return next(new ErrorResponse('Invalid credentials', 401));
-	}
+  if (!user) {
+    return next(new ErrorResponse('Invalid credentials', 401));
+  }
 
-	// TODO SALTING maybe using bcrypt?
-	const isMatch = user.password === password;
+  // TODO SALTING maybe using bcrypt?
+  const isMatch = user.password === password;
 
-	if (!isMatch) {
-		return next(new ErrorResponse('Invalid credentials', 401));
-	}
+  if (!isMatch) {
+    return next(new ErrorResponse('Invalid credentials', 401));
+  }
 
-	// TODO: Handle token/jwt
-	res.status(200).json({ success: true });
+  // TODO: Handle token/jwt
+  res.status(200).json({ success: true });
 });
