@@ -42,7 +42,6 @@ exports.login = asyncResolver(async (req, res, next) => {
 
 	// TODO SALTING maybe using bcrypt?
 	const isMatch = user.password === password;
-	console.log('UZER', isMatch, password, user.password);
 
 	if (!isMatch) {
 		return next(new ErrorResponse('Invalid credentials', 401));

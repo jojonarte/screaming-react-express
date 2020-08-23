@@ -5,8 +5,8 @@ import { createLogger } from 'redux-logger';
 import createSagaMiddleware from 'redux-saga';
 
 import tasksReducer from '../tasks/reducer';
-
-import * as tasksSagas from '../tasks/sagas';
+import authReducer from '../auth/reducer';
+import rootSaga from '../app/sagas';
 import { defaultState } from '../../backendserver/defaultState';
 
 const sagaMiddleware = createSagaMiddleware();
@@ -23,6 +23,7 @@ const commentsReducer = (state = defaultState.comments, action) => {
 
 export const store = createStore(
 	combineReducers({
+		auth: authReducer,
 		tasks: tasksReducer,
 		users: usersReducer,
 		groups: groupsReducer,
@@ -31,6 +32,4 @@ export const store = createStore(
 	applyMiddleware(createLogger(), sagaMiddleware)
 );
 
-for (let saga in tasksSagas) {
-	sagaMiddleware.run(tasksSagas[saga]);
-}
+sagaMiddleware.run(rootSaga);
