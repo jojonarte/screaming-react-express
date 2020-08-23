@@ -3,6 +3,8 @@ export const defaultState = {
 		{
 			id: 'u1',
 			name: 'dev',
+			username: 'jojonarte',
+			password: '1234',
 		},
 	],
 	groups: [
