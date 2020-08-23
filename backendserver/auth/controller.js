@@ -40,14 +40,14 @@ exports.login = asyncResolver(async (req, res, next) => {
 		return next(new ErrorResponse('Invalid credentials', 401));
 	}
 
-	console.log('UZER', password, user.password);
 	// TODO SALTING maybe using bcrypt?
 	const isMatch = user.password === password;
+	console.log('UZER', isMatch, password, user.password);
 
 	if (!isMatch) {
 		return next(new ErrorResponse('Invalid credentials', 401));
 	}
 
 	// TODO: Handle token/jwt
-	res.send(200).json({ success: true });
+	res.status(200).json({ success: true });
 });
