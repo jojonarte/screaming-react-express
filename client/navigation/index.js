@@ -9,6 +9,9 @@ function Navigation() {
 			<Link to="/dashboard">
 				<h1>Dashboard</h1>
 			</Link>
+			<Link to="/login">
+				<h1>Login</h1>
+			</Link>
 		</div>
 	);
 }

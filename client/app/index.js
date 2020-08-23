@@ -7,6 +7,7 @@ import { store } from '../store';
 import history from '../store/history';
 import Navigation from '../navigation';
 import { TaskDetail } from '../tasks';
+import { Login } from '../auth';
 
 export default class App extends Component {
 	render() {
@@ -24,6 +25,7 @@ export default class App extends Component {
 						path="/task/:id"
 						render={({ match }) => <TaskDetail match={match} />}
 					/>
+					<Route exact path="/login" component={Login} />
 				</Provider>
 			</BrowserRouter>
 		);
