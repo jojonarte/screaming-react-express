@@ -1,32 +1,32 @@
 exports.asyncResolver = (fn) => (req, res, next) =>
-  Promise.resolve(fn(req, res, next)).catch(next);
+	Promise.resolve(fn(req, res, next)).catch(next);
 
 exports.errorHandler = (err, req, res, next) => {
-  let error = { ...err, message: err.message };
+	let error = { ...err, message: err.message };
 
-  // Log error to console
-  console.log(Object.keys(err));
+	// Log error to console
+	console.log(Object.keys(err));
 
-  if (err.name === 'CastError') {
-    const message = `Resource not found`;
+	if (err.name === 'CastError') {
+		const message = `Resource not found`;
 
-    error = new ErrorResponse(message, 404);
-  }
-  // Mongoose duplicate key
-  if (err.code === 11000) {
-    const message = `Duplicate field value entered`;
+		error = new ErrorResponse(message, 404);
+	}
+	// Mongoose duplicate key
+	if (err.code === 11000) {
+		const message = `Duplicate field value entered`;
 
-    error = new ErrorResponse(message, 400);
-  }
+		error = new ErrorResponse(message, 400);
+	}
 
-  // Mongoose validation error
-  if (err.name === 'ValidationError') {
-    const message = Object.values(err.errors).map((val) => val.message);
+	// Mongoose validation error
+	if (err.name === 'ValidationError') {
+		const message = Object.values(err.errors).map((val) => val.message);
 
-    error = new ErrorResponse(message, 400);
-  }
+		error = new ErrorResponse(message, 400);
+	}
 
-  res
-    .status(error.statusCode || 500)
-    .json({ success: false, error: error.message || 'Server error' });
+	res
+		.status(error.statusCode || 500)
+		.json({ success: false, error: error.message || 'Server error' });
 };
