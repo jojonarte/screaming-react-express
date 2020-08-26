@@ -9,8 +9,6 @@ const dbConnect = require('./config/db');
 
 dbConnect();
 
-const { routes: taskRoute } = require('./tasks');
-const { routes: authRoute } = require('./auth');
 const { errorHandler } = require('./util/middleware');
 
 const app = express();
@@ -19,8 +17,9 @@ app.use(express.json());
 app.use(cors());
 app.use(morgan('dev'));
 
-app.use('/api/v1/task', taskRoute);
-app.use('/api/v1/auth', authRoute);
+const rootRoute = require('./rootRoute');
+app.use('/api/v1', rootRoute);
+
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 8080;
