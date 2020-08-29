@@ -16,13 +16,15 @@ function Login(props) {
 		<div>
 			<h1>Login</h1>
 			<div>
-				<form onSubmit>
+				<form className="form-group" onSubmit={handleSubmit}>
 					<input
+						className="form-control"
 						type="text"
 						onChange={(e) => setUsername(e.target.value)}
 						placeholder="Username"
 					></input>
 					<input
+						className="form-control"
 						type="password"
 						onChange={(e) => setPassword(e.target.value)}
 						placeholder="Password"
