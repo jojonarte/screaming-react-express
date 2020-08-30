@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { Dashboard } from '../dashboard';
 import { connect } from 'react-redux';
 
-function Navigation() {
+function Navigation(props) {
+	console.log('ZZ', props);
 	return (
 		<nav className="nav">
 			<Link className="nav-link" to="/dashboard">
