@@ -1,13 +1,13 @@
-const UserModel = require('./model');
-const ErrorResponse = require('../util/ErrorResponse');
-const { asyncResolver } = require('../util/middleware');
+import UserModel from './model';
+import ErrorResponse from '../util/ErrorResponse';
+import { asyncResolver } from '../util/middleware';
 
 /**
  * @description Registration
  * @route /api/v1/auth/register
  * @access Public
  */
-exports.register = asyncResolver(async (req, res, next) => {
+export const register = asyncResolver(async (req, res, next) => {
 	const { username, name, password } = req.body;
 
 	const user = await UserModel.create({
@@ -24,7 +24,7 @@ exports.register = asyncResolver(async (req, res, next) => {
  * @route /api/v1/auth/login
  * @access Public
  */
-exports.login = asyncResolver(async (req, res, next) => {
+export const login = asyncResolver(async (req, res, next) => {
 	const { username, password } = req.body;
 
 	if (!username || !password) {

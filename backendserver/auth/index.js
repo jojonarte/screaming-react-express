@@ -1,7 +1,2 @@
-const User = require('./model');
-const routes = require('./routes');
-
-module.exports = {
-  User,
-  routes,
-};
+export { default as User } from './model';
+export { default as routes } from './routes';

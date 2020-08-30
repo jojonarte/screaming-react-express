@@ -1,7 +1,6 @@
-const express = require('express');
+import express from 'express';
+import { register, login } from './controller';
 const router = express.Router();
-
-const { register, login } = require('./controller');
 
 router.post('/register', register);
 router.post('/login', login);
