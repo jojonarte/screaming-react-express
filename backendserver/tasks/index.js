@@ -1,7 +1,2 @@
-const Task = require('./model');
-const routes = require('./routes');
-
-module.exports = {
-  Task,
-  routes,
-};
+export { default as Task } from './model';
+export { default as routes } from './routes';
