@@ -1,11 +1,13 @@
-const path = require('path');
-const express = require('express');
-const cors = require('cors');
-const morgan = require('morgan');
+import path from 'path';
+import express from 'express';
+import cors from 'cors';
+import morgan from 'morgan';
 
-require('dotenv').config({ path: path.resolve(__dirname, './config/.env') });
+import dotenv from 'dotenv';
 
-const dbConnect = require('./config/db');
+dotenv.config({ path: path.resolve(__dirname, './config/.env') });
+
+import dbConnect from './config/db';
 
 dbConnect();
 
