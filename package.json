@@ -8,7 +8,7 @@
 		"dev": "webpack-dev-server --open",
 		"prod": "npm-run-all -p -r prodInit server",
 		"prodInit": "webpack --mode production",
-		"startBackendServer": "nodemon --exec babel-node ./backendserver/index.js",
+		"startBackendServer": "nodemon --watch ./backendserver  --exec babel-node ./backendserver/index.js",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"repository": {
