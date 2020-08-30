@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(cors());
 app.use(morgan('dev'));
 
-const rootRoute = require('./rootRoute');
+import rootRoute from './config/routes';
 app.use('/api/v1', rootRoute);
 
 app.use(errorHandler);
