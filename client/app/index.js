@@ -4,7 +4,7 @@ import { Router, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from '../store';
 import history from '../store/history';
-import RootRoute from './routes';
+import RootRoute from './rootRouter';
 
 export default function App() {
 	return (
