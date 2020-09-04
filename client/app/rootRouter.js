@@ -11,7 +11,7 @@ function Router() {
 	return (
 		<>
 			<Navigation />
-			<Suspense fallback={<div>Loading....</div>}>
+			<Suspense fallback={<div>Loading...</div>}>
 				<Switch>
 					<Route
 						path="/dashboard"
